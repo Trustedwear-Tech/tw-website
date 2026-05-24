@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Child located instantly in a crowded mall using TrustedWear">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F0FF"/>
+      <stop offset="100%" stop-color="#E6D5FF"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DDD6FE"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="480" height="360" fill="url(#bg)"/>
+
+  <!-- Mall back wall / storefronts -->
+  <rect x="0" y="60" width="480" height="180" fill="#FFFFFF" opacity="0.55"/>
+  <!-- Storefront signs -->
+  <g opacity="0.7">
+    <rect x="40" y="80" width="80" height="22" rx="4" fill="#8B5CF6"/>
+    <rect x="160" y="80" width="100" height="22" rx="4" fill="#A78BFA"/>
+    <rect x="300" y="80" width="60" height="22" rx="4" fill="#C4B5FD"/>
+    <rect x="380" y="80" width="70" height="22" rx="4" fill="#8B5CF6"/>
+  </g>
+  <!-- Floor -->
+  <rect x="0" y="240" width="480" height="120" fill="url(#floor)"/>
+  <!-- Floor tiles -->
+  <g stroke="#A78BFA" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="270" x2="480" y2="265"/>
+    <line x1="0" y1="300" x2="480" y2="295"/>
+    <line x1="0" y1="330" x2="480" y2="325"/>
+  </g>
+
+  <!-- Crowd silhouettes (background, faded) -->
+  <g fill="#94A3B8" opacity="0.7">
+    <g transform="translate(60 200)">
+      <circle cx="0" cy="0" r="10"/>
+      <path d="M -14 12 Q -14 28 0 28 Q 14 28 14 12 L 12 50 L -12 50 Z"/>
+    </g>
+    <g transform="translate(110 210)">
+      <circle cx="0" cy="0" r="9"/>
+      <path d="M -12 10 Q -12 24 0 24 Q 12 24 12 10 L 10 44 L -10 44 Z"/>
+    </g>
+    <g transform="translate(380 205)">
+      <circle cx="0" cy="0" r="10"/>
+      <path d="M -14 12 Q -14 28 0 28 Q 14 28 14 12 L 12 50 L -12 50 Z"/>
+    </g>
+    <g transform="translate(420 215)">
+      <circle cx="0" cy="0" r="9"/>
+      <path d="M -12 10 Q -12 24 0 24 Q 12 24 12 10 L 10 44 L -10 44 Z"/>
+    </g>
+  </g>
+  <g fill="#64748B" opacity="0.85">
+    <g transform="translate(160 215)">
+      <circle cx="0" cy="0" r="11"/>
+      <path d="M -15 14 Q -15 30 0 30 Q 15 30 15 14 L 13 56 L -13 56 Z"/>
+    </g>
+    <g transform="translate(330 218)">
+      <circle cx="0" cy="0" r="11"/>
+      <path d="M -15 14 Q -15 30 0 30 Q 15 30 15 14 L 13 56 L -13 56 Z"/>
+    </g>
+  </g>
+
+  <!-- Highlighted child -->
+  <g transform="translate(240 215)">
+    <!-- pulse rings -->
+    <circle r="70" fill="url(#pulse)"/>
+    <circle r="56" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="3 5" opacity="0.5">
+      <animate attributeName="r" values="50;64;50" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="42" fill="none" stroke="#7C3AED" stroke-width="2" opacity="0.7"/>
+    <!-- child -->
+    <circle cx="0" cy="0" r="13" fill="#FFD7B5"/>
+    <path d="M -11 -4 Q -8 -14 0 -14 Q 8 -14 11 -4 Q 8 -8 0 -8 Q -8 -8 -11 -4 Z" fill="#5C2E0E"/>
+    <path d="M -16 14 Q -16 32 0 32 Q 16 32 16 14 L 14 60 L -14 60 Z" fill="url(#shirt)"/>
+    <!-- watch -->
+    <rect x="-22" y="28" width="9" height="6" rx="1.5" fill="#5B21B6"/>
+    <!-- location pin above -->
+    <g transform="translate(0 -38)">
+      <path d="M 0 -16 C -9 -16 -14 -10 -14 -2 C -14 8 0 18 0 18 C 0 18 14 8 14 -2 C 14 -10 9 -16 0 -16 Z" fill="#7C3AED"/>
+      <circle cx="0" cy="-2" r="5" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <!-- "Located" chip -->
+  <g transform="translate(36 290)" filter="url(#soft)">
+    <rect width="130" height="32" rx="16" fill="#FFFFFF"/>
+    <circle cx="18" cy="16" r="5" fill="#22C55E">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="32" y="21" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Found · Aisle 4</text>
+  </g>
+</svg>

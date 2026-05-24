@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -29,22 +28,13 @@ export function HeroSection() {
           </div>
         </div>
         <div className="flex justify-center items-center animate-in fade-in slide-in-from-right duration-1000">
-          <div className="relative w-full max-w-[550px] aspect-[4/5] md:aspect-square">
-            <Image
-              src="https://picsum.photos/seed/happy-child/1000/1000"
-              alt="Happy child wearing TrustedWear"
-              fill
-              className="object-cover rounded-3xl shadow-2xl"
-              data-ai-hint="happy child"
-              priority
-              sizes="(max-width: 768px) 90vw, 550px"
+          <div className="relative w-full max-w-[550px] aspect-square">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/hero.svg?v=4"
+              alt="Child wearing a TrustedWear smart safety watch with live location"
+              className="w-full h-full object-contain"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden lg:block">
-                <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                    <span className="font-bold">Live: Park Campus</span>
-                </div>
-            </div>
           </div>
         </div>
       </div>

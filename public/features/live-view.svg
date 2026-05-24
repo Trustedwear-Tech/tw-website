@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Parent-controlled live camera view from child's TrustedWear watch">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F0FF"/>
+      <stop offset="100%" stop-color="#E6D5FF"/>
+    </linearGradient>
+    <linearGradient id="phoneFrame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="phoneBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E5E7EB"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#F9A8D4"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86EFAC"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="screen">
+      <rect x="160" y="50" width="160" height="260" rx="14"/>
+    </clipPath>
+  </defs>
+  <rect width="480" height="360" fill="url(#bg)"/>
+
+  <!-- Phone frame -->
+  <g filter="url(#soft)">
+    <rect x="148" y="38" width="184" height="284" rx="26" fill="url(#phoneFrame)"/>
+    <rect x="154" y="44" width="172" height="272" rx="20" fill="url(#phoneBody)"/>
+    <rect x="160" y="50" width="160" height="260" rx="14" fill="#0F172A"/>
+    <!-- notch -->
+    <rect x="216" y="50" width="48" height="10" rx="5" fill="#0F172A"/>
+  </g>
+
+  <!-- Screen content -->
+  <g clip-path="url(#screen)">
+    <!-- Sky -->
+    <rect x="160" y="50" width="160" height="170" fill="url(#sky)"/>
+    <!-- Sun -->
+    <circle cx="290" cy="90" r="14" fill="#FEF3C7"/>
+    <!-- Trees -->
+    <circle cx="180" cy="195" r="20" fill="#16A34A"/>
+    <circle cx="305" cy="200" r="18" fill="#15803D"/>
+    <!-- Ground -->
+    <path d="M 160 220 Q 240 200 320 220 L 320 310 L 160 310 Z" fill="url(#grass)"/>
+
+    <!-- Child playing -->
+    <g transform="translate(240 230)">
+      <!-- shadow -->
+      <ellipse cx="0" cy="48" rx="22" ry="4" fill="#000000" opacity="0.15"/>
+      <!-- legs -->
+      <path d="M -6 18 L -10 42 L 0 44 L 0 18 Z" fill="#1E40AF"/>
+      <path d="M 4 18 L 12 38 L 18 36 L 8 18 Z" fill="#1E3A8A"/>
+      <!-- shoes -->
+      <ellipse cx="-5" cy="46" rx="6" ry="2.5" fill="#FFFFFF"/>
+      <ellipse cx="15" cy="38" rx="6" ry="2.5" fill="#FFFFFF"/>
+      <!-- body -->
+      <path d="M -14 -8 Q -14 -16 0 -16 Q 14 -16 14 -8 L 12 20 Q 0 24 -12 20 Z" fill="url(#shirt)"/>
+      <!-- arms raised -->
+      <path d="M -14 -6 Q -22 -16 -24 -30 L -18 -32 Q -14 -22 -8 -14 Z" fill="url(#shirt)"/>
+      <path d="M 14 -6 Q 22 -18 26 -32 L 20 -34 Q 16 -22 10 -14 Z" fill="url(#shirt)"/>
+      <!-- hands -->
+      <circle cx="-22" cy="-30" r="4" fill="#FFD7B5"/>
+      <circle cx="24" cy="-32" r="4" fill="#FFD7B5"/>
+      <!-- head -->
+      <circle cx="0" cy="-26" r="13" fill="#FFD7B5"/>
+      <!-- hair -->
+      <path d="M -13 -30 Q -10 -40 0 -40 Q 10 -40 13 -30 Q 10 -34 0 -34 Q -10 -34 -13 -30 Z" fill="#5C2E0E"/>
+      <!-- smile -->
+      <path d="M -3 -22 Q 0 -19 3 -22" stroke="#0F172A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <!-- watch on wrist -->
+      <rect x="-28" y="-32" width="9" height="6" rx="1.5" fill="#5B21B6"/>
+    </g>
+
+    <!-- LIVE badge -->
+    <g transform="translate(170 64)">
+      <rect width="44" height="18" rx="9" fill="#DC2626"/>
+      <circle cx="10" cy="9" r="3" fill="#FFFFFF">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="18" y="13" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="800" fill="#FFFFFF">LIVE</text>
+    </g>
+    <!-- CAM badge -->
+    <g transform="translate(268 64)">
+      <rect width="46" height="18" rx="9" fill="rgba(15,23,42,0.7)"/>
+      <text x="23" y="13" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">CAM 3/7</text>
+    </g>
+
+    <!-- Camera thumbnails strip at bottom -->
+    <g transform="translate(168 268)">
+      <rect width="36" height="34" rx="4" fill="#1E293B"/>
+      <rect x="40" width="36" height="34" rx="4" fill="#7C3AED"/>
+      <rect x="44" y="4" width="28" height="26" rx="2" fill="#A78BFA"/>
+      <rect x="80" width="36" height="34" rx="4" fill="#1E293B"/>
+      <rect x="120" width="36" height="34" rx="4" fill="#1E293B"/>
+    </g>
+
+    <!-- Camera switcher dots -->
+    <g transform="translate(240 256)">
+      <circle cx="-30" cy="0" r="2.5" fill="#FFFFFF" opacity="0.4"/>
+      <circle cx="-20" cy="0" r="2.5" fill="#FFFFFF" opacity="0.4"/>
+      <circle cx="-10" cy="0" r="4" fill="#FFFFFF"/>
+      <circle cx="0"   cy="0" r="2.5" fill="#FFFFFF" opacity="0.4"/>
+      <circle cx="10"  cy="0" r="2.5" fill="#FFFFFF" opacity="0.4"/>
+      <circle cx="20"  cy="0" r="2.5" fill="#FFFFFF" opacity="0.4"/>
+      <circle cx="30"  cy="0" r="2.5" fill="#FFFFFF" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Floating camera icon (left) -->
+  <g transform="translate(40 100)" filter="url(#soft)">
+    <rect width="80" height="60" rx="14" fill="#FFFFFF"/>
+    <rect x="14" y="18" width="52" height="34" rx="6" fill="#7C3AED"/>
+    <circle cx="40" cy="35" r="9" fill="#FFFFFF"/>
+    <circle cx="40" cy="35" r="5" fill="#7C3AED"/>
+    <rect x="30" y="12" width="20" height="8" rx="2" fill="#7C3AED"/>
+  </g>
+
+  <!-- "7 Cameras" badge (right) -->
+  <g transform="translate(370 130)" filter="url(#soft)">
+    <rect width="86" height="34" rx="17" fill="#7C3AED"/>
+    <text x="43" y="22" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">360° · 7 Cams</text>
+  </g>
+
+  <!-- Watch icon bottom-right -->
+  <g transform="translate(380 250)" filter="url(#soft)">
+    <rect x="-4" y="-30" width="44" height="14" rx="3" fill="#A78BFA"/>
+    <rect x="-4" y="36"  width="44" height="14" rx="3" fill="#A78BFA"/>
+    <rect x="-12" y="-16" width="60" height="52" rx="14" fill="#7C3AED"/>
+    <rect x="-6" y="-10" width="48" height="40" rx="8" fill="#0F172A"/>
+    <circle cx="6" cy="6" r="3" fill="#A78BFA"/>
+    <circle cx="18" cy="6" r="3" fill="#A78BFA"/>
+    <circle cx="30" cy="6" r="3" fill="#A78BFA"/>
+    <text x="18" y="22" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="800" fill="#A78BFA">360°</text>
+  </g>
+</svg>

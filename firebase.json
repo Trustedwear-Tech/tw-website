@@ -1,0 +1,17 @@
+{
+  "apphosting": {
+    "backendId": "studio",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      ".next",
+      ".idx",
+      ".agents",
+      "workspace",
+      "docs",
+      "firebase-debug.log",
+      "firestore-debug.log"
+    ]
+  }
+}

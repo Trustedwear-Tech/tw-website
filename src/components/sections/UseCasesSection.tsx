@@ -1,30 +1,25 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 const cases = [
   {
     title: "Society Play Monitoring",
     description: "Child playing downstairs while parent checks safely from home.",
-    image: "https://picsum.photos/seed/kids-play/800/600",
-    hint: "child playing"
+    image: "/use-cases/play.svg",
   },
   {
     title: "Mall & Travel Safety",
     description: "Instantly locate and view your child in crowded spaces.",
-    image: "https://picsum.photos/seed/mall/800/600",
-    hint: "crowded mall"
+    image: "/use-cases/mall.svg",
   },
   {
     title: "School Pickup",
     description: "Know when your child reaches safely or needs a quick check-in.",
-    image: "https://picsum.photos/seed/school/800/600",
-    hint: "school bus"
+    image: "/use-cases/school.svg",
   },
   {
     title: "Tuition & Travel",
     description: "Real-time awareness during commutes and extra-curricular activities.",
-    image: "https://picsum.photos/seed/travel/800/600",
-    hint: "child walking"
+    image: "/use-cases/travel.svg",
   }
 ];
 
@@ -40,13 +35,12 @@ export function UseCasesSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cases.map((item, index) => (
           <Card key={index} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow">
-            <div className="relative aspect-[4/3]">
-              <Image
+            <div className="relative aspect-[4/3] bg-primary/5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={item.image}
                 alt={item.title}
-                fill
-                className="object-cover"
-                data-ai-hint={item.hint}
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <CardHeader className="p-4">

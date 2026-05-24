@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Emergency one-tap connect with live audio, video, and GPS">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF2F2"/>
+      <stop offset="100%" stop-color="#FECACA"/>
+    </linearGradient>
+    <linearGradient id="phoneFrame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="phoneBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E5E7EB"/>
+    </linearGradient>
+    <linearGradient id="sos" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <radialGradient id="alertPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#DC2626" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="screen2">
+      <rect x="160" y="50" width="160" height="260" rx="14"/>
+    </clipPath>
+  </defs>
+  <rect width="480" height="360" fill="url(#bg)"/>
+
+  <!-- Alert pulse behind phone -->
+  <g transform="translate(240 180)">
+    <circle r="180" fill="url(#alertPulse)"/>
+    <circle r="140" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="3 6" opacity="0.4">
+      <animate attributeName="r" values="120;160;120" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Phone -->
+  <g filter="url(#soft)">
+    <rect x="148" y="38" width="184" height="284" rx="26" fill="url(#phoneFrame)"/>
+    <rect x="154" y="44" width="172" height="272" rx="20" fill="url(#phoneBody)"/>
+    <rect x="160" y="50" width="160" height="260" rx="14" fill="#FFFFFF"/>
+    <rect x="216" y="50" width="48" height="10" rx="5" fill="#0F172A"/>
+  </g>
+
+  <!-- Screen content -->
+  <g clip-path="url(#screen2)">
+    <!-- Alert banner -->
+    <rect x="160" y="60" width="160" height="46" fill="#DC2626"/>
+    <text x="240" y="78" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">EMERGENCY ALERT</text>
+    <text x="240" y="94" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#FECACA">Tap to connect now</text>
+
+    <!-- SOS big button -->
+    <g transform="translate(240 160)">
+      <circle r="46" fill="url(#sos)"/>
+      <circle r="40" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="3 4" opacity="0.6"/>
+      <text x="0" y="6" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="900" fill="#FFFFFF">SOS</text>
+    </g>
+
+    <!-- Action chips -->
+    <g transform="translate(174 226)">
+      <rect width="64" height="34" rx="17" fill="#0F172A"/>
+      <!-- camera icon -->
+      <rect x="14" y="13" width="14" height="10" rx="2" fill="#FFFFFF"/>
+      <rect x="20" y="10" width="6" height="3" fill="#FFFFFF"/>
+      <text x="48" y="22" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">Video</text>
+    </g>
+    <g transform="translate(242 226)">
+      <rect width="64" height="34" rx="17" fill="#0F172A"/>
+      <!-- mic icon -->
+      <rect x="18" y="11" width="6" height="10" rx="3" fill="#FFFFFF"/>
+      <path d="M 15 19 Q 21 24 27 19" stroke="#FFFFFF" stroke-width="1.5" fill="none"/>
+      <text x="46" y="22" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">Audio</text>
+    </g>
+
+    <!-- GPS row -->
+    <g transform="translate(170 270)">
+      <rect width="140" height="32" rx="8" fill="#F3F4F6"/>
+      <!-- pin -->
+      <g transform="translate(14 16)">
+        <path d="M 0 -8 C -5 -8 -8 -5 -8 0 C -8 6 0 12 0 12 C 0 12 8 6 8 0 C 8 -5 5 -8 0 -8 Z" fill="#7C3AED"/>
+        <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
+      </g>
+      <text x="30" y="14" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#0F172A">GPS · 12 Lake Rd</text>
+      <text x="30" y="25" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748B">Updated 2s ago</text>
+    </g>
+  </g>
+
+  <!-- Floating siren icon (left) -->
+  <g transform="translate(50 80)" filter="url(#soft)">
+    <circle cx="32" cy="32" r="32" fill="#FFFFFF"/>
+    <!-- siren body -->
+    <rect x="20" y="28" width="24" height="14" rx="2" fill="#DC2626"/>
+    <path d="M 18 28 Q 32 14 46 28 Z" fill="#EF4444"/>
+    <rect x="18" y="42" width="28" height="4" rx="1" fill="#7F1D1D"/>
+    <!-- alert rays -->
+    <g stroke="#DC2626" stroke-width="2" stroke-linecap="round">
+      <line x1="10" y1="20" x2="14" y2="22"/>
+      <line x1="54" y1="20" x2="50" y2="22"/>
+      <line x1="32" y1="6" x2="32" y2="10"/>
+    </g>
+  </g>
+
+  <!-- Floating "Live Audio + Video" chip (right) -->
+  <g transform="translate(360 90)" filter="url(#soft)">
+    <rect width="106" height="36" rx="18" fill="#FFFFFF"/>
+    <circle cx="18" cy="18" r="5" fill="#DC2626">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="32" y="23" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#0F172A">Live A+V</text>
+  </g>
+
+  <!-- Bottom-right "1-Tap" chip -->
+  <g transform="translate(364 240)" filter="url(#soft)">
+    <rect width="96" height="36" rx="18" fill="#7C3AED"/>
+    <text x="48" y="23" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">1-Tap Reach</text>
+  </g>
+</svg>

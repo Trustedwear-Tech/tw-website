@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Encrypted family safety history and activity log">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F0FF"/>
+      <stop offset="100%" stop-color="#E6D5FF"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F3FF"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="480" height="360" fill="url(#bg)"/>
+
+  <!-- Background shield -->
+  <g transform="translate(388 70)" opacity="0.18">
+    <path d="M 0 0 L 50 -8 L 100 0 L 100 50 Q 100 80 50 100 Q 0 80 0 50 Z" fill="#7C3AED"/>
+  </g>
+
+  <!-- Big card / dashboard -->
+  <g filter="url(#soft)">
+    <rect x="40" y="44" width="400" height="272" rx="20" fill="url(#card)"/>
+
+    <!-- Header -->
+    <text x="60" y="78" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="800" fill="#0F172A">Safety History</text>
+    <!-- Encrypted lock badge -->
+    <g transform="translate(340 60)">
+      <rect width="80" height="24" rx="12" fill="#DCFCE7"/>
+      <!-- lock -->
+      <rect x="12" y="10" width="10" height="8" rx="1.5" fill="#15803D"/>
+      <path d="M 14 10 V 8 Q 14 5 17 5 Q 20 5 20 8 V 10" stroke="#15803D" stroke-width="1.5" fill="none"/>
+      <text x="50" y="16" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="800" fill="#15803D">Encrypted</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="60" y1="92" x2="420" y2="92" stroke="#E5E7EB" stroke-width="1"/>
+
+    <!-- Timeline -->
+    <line x1="80" y1="106" x2="80" y2="290" stroke="#DDD6FE" stroke-width="2"/>
+
+    <!-- Entry 1 -->
+    <g transform="translate(80 116)">
+      <circle r="8" fill="#22C55E"/>
+      <path d="M -4 0 L -1 3 L 4 -3" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="20" y="-2" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Reached school</text>
+      <text x="20" y="14" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Today · 8:42 AM</text>
+    </g>
+
+    <!-- Entry 2 -->
+    <g transform="translate(80 162)">
+      <circle r="8" fill="#7C3AED"/>
+      <!-- camera icon -->
+      <rect x="-4" y="-2" width="8" height="5" rx="1" fill="#FFFFFF"/>
+      <rect x="-1" y="-4" width="3" height="2" fill="#FFFFFF"/>
+      <text x="20" y="-2" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Live view · Cam 3</text>
+      <text x="20" y="14" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Today · 12:15 PM</text>
+    </g>
+
+    <!-- Entry 3 -->
+    <g transform="translate(80 208)">
+      <circle r="8" fill="#A78BFA"/>
+      <!-- pin icon -->
+      <path d="M 0 -4 C -2.5 -4 -4 -2 -4 0 C -4 2.5 0 5 0 5 C 0 5 4 2.5 4 0 C 4 -2 2.5 -4 0 -4 Z" fill="#FFFFFF"/>
+      <text x="20" y="-2" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Left park</text>
+      <text x="20" y="14" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Yesterday · 4:15 PM</text>
+    </g>
+
+    <!-- Entry 4 -->
+    <g transform="translate(80 254)">
+      <circle r="8" fill="#FBBF24"/>
+      <!-- heart icon -->
+      <path d="M -3 -1 C -3 -3 -1 -4 0 -2 C 1 -4 3 -3 3 -1 C 3 2 0 4 0 4 C 0 4 -3 2 -3 -1 Z" fill="#FFFFFF"/>
+      <text x="20" y="-2" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Heart rate · 92 bpm</text>
+      <text x="20" y="14" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B">Yesterday · 3:50 PM</text>
+    </g>
+
+    <!-- Side bar chart -->
+    <g transform="translate(310 110)">
+      <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#64748B">This week</text>
+      <g transform="translate(0 14)">
+        <rect x="0"   y="40" width="14" height="36" rx="3" fill="#DDD6FE"/>
+        <rect x="22"  y="20" width="14" height="56" rx="3" fill="#A78BFA"/>
+        <rect x="44"  y="32" width="14" height="44" rx="3" fill="#DDD6FE"/>
+        <rect x="66"  y="10" width="14" height="66" rx="3" fill="#7C3AED"/>
+        <rect x="88"  y="28" width="14" height="48" rx="3" fill="#DDD6FE"/>
+        <rect x="110" y="18" width="14" height="58" rx="3" fill="#A78BFA"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Floating shield badge -->
+  <g transform="translate(380 240)" filter="url(#soft)">
+    <path d="M 0 -16 L 26 -10 L 26 14 Q 26 30 0 38 Q -26 30 -26 14 L -26 -10 Z" fill="url(#shield)"/>
+    <path d="M -8 4 L -2 10 L 10 -4" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
