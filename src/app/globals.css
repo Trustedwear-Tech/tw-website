@@ -4,47 +4,57 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 0.75rem;
-  }
-  .dark {
-    --background: 222.2 84% 4.9%;
+    /* Deep-tech corporate — dark navy base, electric blue + cyan accents.
+       The site has no theme toggle, so :root carries the production palette. */
+    --background: 222 47% 6%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 222 40% 9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 44% 8%;
     --popover-foreground: 210 40% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 14%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 16%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 263.4 70% 50.4%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+
+    /* Brand accents */
+    --accent-cyan: 187 85% 53%;
+    --accent-blue: 221 83% 53%;
+  }
+
+  /* Kept identical to :root so any `.dark` usage stays consistent. */
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 44% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 16%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 221 83% 53%;
+    --accent-cyan: 187 85% 53%;
+    --accent-blue: 221 83% 53%;
   }
 }
 
@@ -60,5 +70,77 @@
   }
   section {
     @apply py-16 md:py-24;
+  }
+}
+
+@layer components {
+  /* Small uppercase tracked kicker used above section headings. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary;
+  }
+
+  /* Blue → cyan gradient clip for emphasised words in headings. */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--accent-blue)),
+      hsl(var(--accent-cyan))
+    );
+  }
+
+  /* Faint technical grid for hero + feature bands (no asset required). */
+  .grid-bg {
+    background-color: hsl(var(--background));
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: center;
+  }
+
+  /* Radial glow that sits behind hero content / device imagery. */
+  .glow-radial {
+    position: relative;
+  }
+  .glow-radial::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 40%,
+      hsl(var(--accent-blue) / 0.22),
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  /* Gradient hairline border + lift on hover for feature cards. */
+  .card-glow {
+    @apply relative border border-border/80 transition-all duration-300;
+  }
+  .card-glow:hover {
+    @apply border-primary/50 -translate-y-1;
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.2),
+      0 18px 48px -24px hsl(var(--accent-blue) / 0.55);
+  }
+
+  /* Rounded backplate behind product/device images so transparent and
+     light-background PNGs both read intentionally on the dark theme. */
+  .device-backplate {
+    @apply relative flex items-center justify-center rounded-3xl border border-border/70;
+    background:
+      radial-gradient(
+        circle at 50% 30%,
+        hsl(var(--accent-blue) / 0.18),
+        transparent 65%
+      ),
+      hsl(var(--card));
+  }
+
+  /* Alternating band backgrounds. */
+  .section-darker {
+    background-color: hsl(222 47% 4.5%);
   }
 }

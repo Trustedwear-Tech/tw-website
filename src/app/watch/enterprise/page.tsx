@@ -1,13 +1,14 @@
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { WatchComingSoonBanner } from "@/components/sections/WatchComingSoonBanner";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Briefcase, ShieldCheck, Truck, Users, MapPin, Database } from "lucide-react";
-import Image from "next/image";
+import { EnterpriseDashboardSvg } from "@/components/sections/EnterpriseDashboardSvg";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Enterprise Solutions - TrustedWear',
-  description: 'Workforce safety, logistics monitoring, and corporate security solutions powered by TrustedWear wearable technology.',
+  title: 'Trustedwear Watch for Enterprise',
+  description: 'Workforce safety, logistics monitoring, and corporate security with the Trustedwear smartwatch (launching 2027). For software solutions available today, see Citra AI.',
 };
 
 const solutions = [
@@ -47,12 +48,15 @@ export default function EnterprisePage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <WatchComingSoonBanner />
       <main className="flex-grow">
-        <section className="bg-primary/5 py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-headline mb-6">Enterprise Security Redefined</h1>
+        <section className="grid-bg relative overflow-hidden border-b border-border/60 pt-24 pb-20">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 to-background" />
+          <div className="container relative mx-auto px-4 text-center">
+            <span className="eyebrow">For enterprise &amp; workforce</span>
+            <h1 className="mt-6 text-4xl md:text-6xl font-bold font-headline mb-6">Enterprise security, <span className="text-gradient">redefined</span></h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Scaleable wearable surveillance for workforce safety, accountability, and logistics. Move beyond traditional bodycams with TrustedWear's integrated cloud ecosystem.
+              Scalable wearable surveillance for workforce safety, accountability, and logistics — built on Trustedwear's own in-house electronics. Move beyond traditional bodycams with an integrated cloud ecosystem.
             </p>
           </div>
         </section>
@@ -73,14 +77,8 @@ export default function EnterprisePage() {
                         ))}
                     </ul>
                 </div>
-                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                    <Image
-                        src="https://picsum.photos/seed/enterprise-ui/1280/720"
-                        alt="Enterprise Dashboard"
-                        fill
-                        className="object-cover"
-                        data-ai-hint="enterprise dashboard"
-                    />
+                <div className="card-glow relative aspect-video overflow-hidden rounded-2xl bg-card p-3 shadow-2xl">
+                    <EnterpriseDashboardSvg />
                 </div>
             </div>
         </section>

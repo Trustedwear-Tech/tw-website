@@ -11,7 +11,7 @@ const products = [
     description: "The ultimate safety companion for children. Features live parent-controlled view, safe zones, and whitelist calling.",
     image: "/images/girl-png.png",
     hint: "kids wearable",
-    href: "/products/kids",
+    href: "/watch/products/kids",
     primary: true
   },
   {
@@ -19,7 +19,7 @@ const products = [
     description: "Elegant and powerful security for women, commuters, and professionals. Features emergency SOS and secure recording.",
     image: "/images/women-trans.png",
     hint: "guardian wearable",
-    href: "/products/adult",
+    href: "/watch/products/adult",
     primary: false
   },
 ];
@@ -27,19 +27,20 @@ const products = [
 export function ProductsSection() {
   return (
     <section id="products" className="container mx-auto px-4 md:px-6">
-      <div className="text-center space-y-4 mb-16">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">Find Your Perfect Companion</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Choose the wearable that fits your family's needs.
+      <div className="text-center space-y-4 mb-16 max-w-2xl mx-auto">
+        <span className="eyebrow">The collection</span>
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">A guardian for everyone you love</h2>
+        <p className="text-lg text-muted-foreground">
+          Purpose-built editions for children and for women on the move — same in-house hardware, same security.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {products.map((product, index) => (
-          <Card 
+          <Card
             key={index}
-            className={`flex flex-col overflow-hidden border-none shadow-xl transition-all hover:scale-[1.02] ${product.primary ? 'ring-2 ring-primary' : ''}`}
+            className={`card-glow flex flex-col overflow-hidden bg-card ${product.primary ? 'ring-1 ring-primary/40' : ''}`}
           >
-            <div className="bg-muted/30 aspect-square relative p-8">
+            <div className="device-backplate aspect-square relative rounded-none p-8">
                  <Image
                     src={product.image}
                     alt={product.title}
@@ -58,7 +59,7 @@ export function ProductsSection() {
                         <Link href={product.href}>View Details</Link>
                     </Button>
                     <Button asChild size="lg" className="flex-1" variant={product.primary ? "secondary" : "ghost"}>
-                        <Link href="/#buy">Pre-order Now</Link>
+                        <Link href="/watch#notify">Notify me at launch</Link>
                     </Button>
                 </div>
             </CardHeader>

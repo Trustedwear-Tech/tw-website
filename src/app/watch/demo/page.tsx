@@ -1,5 +1,6 @@
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { WatchComingSoonBanner } from "@/components/sections/WatchComingSoonBanner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
@@ -8,8 +9,8 @@ import { VideoSection } from "@/components/sections/VideoSection";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Interactive Demos - Trusted Wearables',
-  description: 'Experience the core features of Trusted Wearables firsthand. Explore our interactive demos for 360° capture, Watch OS, and more.',
+  title: 'Trustedwear Watch — Interactive Demos',
+  description: 'Preview the core features of the Trustedwear smartwatch (launching 2027): 360° capture, Watch OS, cloud surveillance, corporate dashboard.',
 };
 
 const demos = [
@@ -107,6 +108,7 @@ export default function DemoPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <WatchComingSoonBanner />
       <main className="flex-grow">
         <VideoSection
           id="video"

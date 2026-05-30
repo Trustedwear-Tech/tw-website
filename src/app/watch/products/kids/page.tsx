@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { WatchComingSoonBanner } from "@/components/sections/WatchComingSoonBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Camera, MapPin, Siren, Map, Shield, Smile, Gamepad2, Phone, Bot, MessageSquare, Signal, Bluetooth, Smartphone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -72,19 +73,24 @@ export default function KidsWatchPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
+      <WatchComingSoonBanner />
       <main className="flex-grow">
-        <section className="bg-primary/5 py-20">
-            <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 px-4 md:px-6">
+        <section className="grid-bg relative overflow-hidden border-b border-border/60 pt-24 pb-20">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 to-background" />
+            <div className="container relative mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 px-4 md:px-6">
                 <div className="space-y-8 text-center lg:text-left">
+                    <span className="eyebrow">Trustedwear Kids</span>
                     <h1 className="text-4xl font-bold tracking-tight md:text-6xl font-headline leading-tight">
-                        TrustedWear Kids: <br/><span className="text-primary">Safe. Smart. Connected.</span>
+                        Safe. Smart. <span className="text-gradient">Connected.</span>
                     </h1>
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                        Give your child the freedom to explore while you enjoy absolute peace of mind. The only wearable that keeps you visually connected.
+                        Give your child the freedom to explore while you enjoy absolute peace of mind.
+                        Designed and built fully in-house on a custom kids OS — the only wearable that
+                        keeps you visually connected.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <Button size="lg" className="h-14 px-10 text-lg" asChild>
-                            <Link href="/#buy">Pre-order Now</Link>
+                            <Link href="/watch#notify">Notify me at launch</Link>
                         </Button>
                         <Button size="lg" variant="outline" className="h-14 px-10 text-lg" asChild>
                             <Link href="#product-features">Explore Features</Link>
@@ -109,7 +115,7 @@ export default function KidsWatchPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {features.map((feature, index) => (
-                    <Card key={index} className="text-center border-none bg-muted/20 shadow-none rounded-2xl p-4 flex flex-col">
+                    <Card key={index} className="card-glow text-center bg-card rounded-2xl p-4 flex flex-col">
                         <CardHeader className="items-center pb-4">
                             <div className="p-4 bg-primary/10 rounded-2xl text-primary">
                                 {feature.icon}
@@ -124,7 +130,7 @@ export default function KidsWatchPage() {
             </div>
         </section>
         
-        <section className="bg-primary/5 py-20">
+        <section className="section-darker">
             <div className="container mx-auto px-4 md:px-6 text-center space-y-16">
                 <div className="space-y-4">
                     <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">Learning & Engagement</h2>
@@ -134,7 +140,7 @@ export default function KidsWatchPage() {
                 </div>
                 <div className="flex flex-wrap justify-center gap-8">
                     {uiDemos.map((demo, index) => (
-                        <div key={index} className="bg-background rounded-3xl shadow-xl p-6 w-full max-w-[340px] flex flex-col border border-primary/5">
+                        <div key={index} className="card-glow bg-card rounded-3xl p-6 w-full max-w-[340px] flex flex-col">
                             <VideoPlayer
                                 videoSrc={demo.videoSrc}
                                 className="w-full aspect-square rounded-2xl overflow-hidden"
@@ -156,7 +162,7 @@ export default function KidsWatchPage() {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                    <div className="relative aspect-square rounded-3xl overflow-hidden shadow-xl bg-muted/20 p-8">
+                    <div className="device-backplate relative aspect-square overflow-hidden p-8">
                         <Image
                             src="/images/boy-blue1.png"
                             alt="Kids Watch Sky Blue"
@@ -165,7 +171,7 @@ export default function KidsWatchPage() {
                             data-ai-hint="blue kids watch"
                         />
                     </div>
-                    <div className="relative aspect-square rounded-3xl overflow-hidden shadow-xl bg-muted/20 p-8">
+                    <div className="device-backplate relative aspect-square overflow-hidden p-8">
                         <Image
                             src="/images/girl-png.png"
                             alt="Kids Watch Petal Pink"

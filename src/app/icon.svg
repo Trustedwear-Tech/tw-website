@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tw-accent" x1="14" y1="46" x2="50" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <!-- Brand backplate -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0A0E1A"/>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="13.5" stroke="#22D3EE" stroke-opacity="0.25"/>
+  <!-- W monogram -->
+  <path d="M13 20 L21 45 L32 28 L43 45 L51 20" fill="none" stroke="url(#tw-accent)"
+        stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- watch-face accent -->
+  <circle cx="50" cy="15" r="5.5" fill="#0A0E1A" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M50 15 L50 11.5 M50 15 L52.4 16.4" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

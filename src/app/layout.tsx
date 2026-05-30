@@ -1,31 +1,33 @@
 import type {Metadata} from 'next';
 import '@/app/globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Lora, Merriweather } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://trustedwear.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://trustedweartech.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Trusted Wearables - Smart, Safe, and Connected',
-    template: '%s | Trusted Wearables',
+    default: 'Trustedwear Tech — AI & Electronics Products and Consulting',
+    template: '%s | Trustedwear Tech',
   },
-  description: 'The Trusted Wearables watch is designed for peace of mind. Keep your loved ones safe and connected, wherever they go.',
+  description:
+    'Trustedwear Tech Private Limited (CIN U29299BR2022PTC060732) is a deep-tech products and consulting firm in AI and electronics system design & manufacturing (ESDM). We build Citra AI — a sovereign agentic AI platform — and the Trustedwear security smartwatch, designed and built fully in-house with a custom OS, firmware, UI, and PCB design, and deliver AI, embedded systems, and advanced software engineering for government and enterprise.',
   openGraph: {
-    title: 'Trusted Wearables - Smart, Safe, and Connected',
-    description: 'The Trusted Wearables watch is designed for peace of mind. Keep your loved ones safe and connected, wherever they go.',
+    title: 'Trustedwear Tech — AI & Electronics Products and Consulting',
+    description:
+      'Products and consulting in AI and electronics (ESDM). Maker of Citra AI (live) and the Trustedwear security smartwatch, designed and built fully in-house (2027). Incubated at IIT Patna; backed by Startup India, Government of Bihar, and MeitY.',
     url: siteUrl,
-    siteName: 'Trusted Wearables',
+    siteName: 'Trustedwear Tech',
     images: [
       {
         url: '/images/trusted-wear-logo.png',
         width: 100,
         height: 40,
-        alt: 'Trusted Wearables Logo',
+        alt: 'Trustedwear Tech Logo',
       },
     ],
-    locale: 'en_US',
+    locale: 'en_IN',
     type: 'website',
   },
   robots: {
@@ -41,31 +43,27 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trusted Wearables - Smart, Safe, and Connected',
-    description: 'The Trusted Wearables watch is designed for peace of mind. Keep your loved ones safe and connected, wherever they go.',
+    title: 'Trustedwear Tech — AI & Electronics Products and Consulting',
+    description:
+      'Products and consulting in AI and electronics (ESDM). Maker of Citra AI (live) and the Trustedwear security smartwatch, built fully in-house (2027).',
     images: ['/images/trusted-wear-logo.png'],
-  },
-  icons: {
-    icon: '/images/trusted-wear-logo.png',
-    shortcut: '/images/trusted-wear-logo.png',
-    apple: '/images/trusted-wear-logo.png',
   },
   verification: {
     google: 'Rxjkhd1Y0I23hJ1JyLgID_wPm6vWV5wpxl-ANF0OTr0',
   },
 };
 
-const lora = Lora({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-lora',
-  weight: ['400', '700'],
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
-const merriweather = Merriweather({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-merriweather',
-  weight: ['400', '700'],
+  variable: '--font-space-grotesk',
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
@@ -75,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lora.variable} ${merriweather.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`dark ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body className="font-body antialiased">
         {children}
         <Toaster />

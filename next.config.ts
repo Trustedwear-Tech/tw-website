@@ -39,6 +39,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Watch product pages moved under /watch/*
+      { source: '/products/kids', destination: '/watch/products/kids', permanent: true },
+      { source: '/products/adult', destination: '/watch/products/adult', permanent: true },
+      { source: '/products/memory-assist', destination: '/watch', permanent: true },
+      { source: '/products/:path*', destination: '/watch/products/:path*', permanent: true },
+      { source: '/enterprise', destination: '/watch/enterprise', permanent: true },
+      { source: '/demo', destination: '/watch/demo', permanent: true },
+      { source: '/faq', destination: '/watch/faq', permanent: true },
+      // /about replaced by /company
+      { source: '/about', destination: '/company', permanent: true },
+    ];
+  },
   async headers() {
     const cacheHeaders = [
       {

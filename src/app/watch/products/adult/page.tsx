@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { WatchComingSoonBanner } from "@/components/sections/WatchComingSoonBanner";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Camera, Siren, ShieldCheck, Eye, Watch, Smartphone, HeartPulse } from 'lucide-react';
@@ -64,22 +65,27 @@ export default function AdultWatchPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <WatchComingSoonBanner />
       <main className="flex-grow">
-        <section className="bg-primary/5 py-20">
-            <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 px-4 md:px-6">
+        <section className="grid-bg relative overflow-hidden border-b border-border/60 pt-24 pb-20">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 to-background" />
+            <div className="container relative mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 px-4 md:px-6">
                 <div className="space-y-8 text-center lg:text-left">
+                    <span className="eyebrow">Trustedwear Guardian</span>
                     <h1 className="text-4xl font-bold tracking-tight md:text-6xl font-headline leading-tight">
-                        TrustedWear Guardian: <br/><span className="text-primary">Your Always-On Bodyguard</span>
+                        Your always-on <span className="text-gradient">bodyguard</span>.
                     </h1>
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                        Sophisticated personal security for women, commuters, and high-stakes professionals. Because peace of mind should be as elegant as it is powerful.
+                        Sophisticated personal security for women, commuters, and high-stakes
+                        professionals — powered by our own in-house electronics and on-device
+                        encryption. Peace of mind as elegant as it is powerful.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <Button size="lg" className="h-14 px-10 text-lg" asChild>
-                            <Link href="/#buy">Pre-order Guardian</Link>
+                            <Link href="/watch#notify">Notify me at launch</Link>
                         </Button>
                         <Button size="lg" variant="outline" className="h-14 px-10 text-lg" asChild>
-                            <Link href="/demo">Watch Live SOS Demo</Link>
+                            <Link href="/watch/demo">Watch Live SOS Demo</Link>
                         </Button>
                     </div>
                 </div>
@@ -113,7 +119,7 @@ export default function AdultWatchPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {features.map((feature, index) => (
-                    <Card key={index} className="border-none bg-muted/20 shadow-none rounded-2xl p-6 text-center">
+                    <Card key={index} className="card-glow bg-card rounded-2xl p-6 text-center">
                         <CardHeader className="items-center pb-4">
                             <div className="p-4 bg-primary/10 rounded-2xl text-primary">
                                 {feature.icon}
@@ -128,7 +134,7 @@ export default function AdultWatchPage() {
             </div>
         </section>
 
-        <section id="our-designs" className="bg-primary/5 py-20">
+        <section id="our-designs" className="section-darker">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center space-y-4 mb-16">
                     <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">The Guardian Collection</h2>
@@ -138,7 +144,7 @@ export default function AdultWatchPage() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     {watchModels.map((model, index) => (
-                        <div key={index} className="bg-background relative w-full aspect-square rounded-3xl overflow-hidden shadow-xl p-8 border border-primary/5">
+                        <div key={index} className="device-backplate relative w-full aspect-square overflow-hidden p-8">
                             <Image
                                 src={model.src}
                                 alt={model.alt}

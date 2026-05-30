@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-merriweather)', 'serif'],
-        headline: ['var(--font-lora)', 'serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-space-grotesk)', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -55,6 +55,7 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        cyan: 'hsl(var(--accent-cyan))',
       },
       borderRadius: {
         lg: 'var(--radius)',

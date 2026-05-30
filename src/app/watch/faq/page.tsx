@@ -1,6 +1,7 @@
 
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { WatchComingSoonBanner } from "@/components/sections/WatchComingSoonBanner";
 import {
   Accordion,
   AccordionContent,
@@ -11,8 +12,8 @@ import { HelpCircle } from "lucide-react";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'FAQ - Trusted Wearables',
-  description: 'Find answers to common questions about Trusted Wearables products, features, privacy, and services.',
+  title: 'Trustedwear Watch — FAQ',
+  description: 'Answers to common questions about the Trustedwear smartwatch — features, 7-camera surveillance, privacy, and the 2027 launch timeline.',
 };
 
 const faqs = [
@@ -42,6 +43,7 @@ export default function FaqPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <WatchComingSoonBanner />
       <main className="flex-grow">
         <section className="container mx-auto px-4 md:px-6 py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">

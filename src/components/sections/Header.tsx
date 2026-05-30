@@ -11,19 +11,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, ExternalLink } from "lucide-react";
 
-const productLinks = [
-    { href: "/products/kids", label: "TrustedWear Kids" },
-    { href: "/products/adult", label: "TrustedWear Guardian" },
+const watchLinks = [
+  { href: "/watch", label: "Overview" },
+  { href: "/watch/products/kids", label: "Trustedwear Kids" },
+  { href: "/watch/products/adult", label: "Trustedwear Guardian" },
+  { href: "/watch/enterprise", label: "For Enterprise" },
+  { href: "/watch/demo", label: "Demos" },
+  { href: "/watch/faq", label: "FAQ" },
 ];
 
 const otherLinks = [
-  { href: "/enterprise", label: "Enterprise" },
-  { href: "/about", label: "About Us" },
-  { href: "/demo", label: "Live Demo" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/services", label: "Services" },
+  { href: "/company", label: "Company" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -41,24 +43,33 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'border-b bg-background/80 backdrop-blur-md' : 'bg-transparent'}`}>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'border-b border-border/60 bg-background/70 backdrop-blur-xl' : 'bg-transparent'}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-      <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-        <Image src="/images/trusted-wear-logo.png" alt="TrustedWear" width={100} height={40} />
-        <span className="hidden sm:inline">TrustedWear</span>
-      </Link>
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+          <Image src="/images/trusted-wear-logo.png" alt="Trustedwear Tech" width={100} height={40} />
+          <span className="hidden sm:inline">Trustedwear Tech</span>
+        </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium lg:flex">
+          <a
+            href="https://citra-ai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-primary font-semibold transition-colors hover:text-primary/80"
+          >
+            Citra AI
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 transition-colors hover:text-primary focus:outline-none data-[state=open]:text-primary">
-              Wearables
+              Trustedwear Watch
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                {productLinks.map((link) => (
-                    <DropdownMenuItem key={link.href} asChild>
-                        <Link href={link.href}>{link.label}</Link>
-                    </DropdownMenuItem>
-                ))}
+              {watchLinks.map((link) => (
+                <DropdownMenuItem key={link.href} asChild>
+                  <Link href={link.href}>{link.label}</Link>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -74,9 +85,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild className="hidden sm:inline-flex">
-            <Link href="/#buy">
-              Pre-order
-            </Link>
+            <Link href="/contact">Talk to our team</Link>
           </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -89,27 +98,39 @@ export function Header() {
               <SheetHeader className="sr-only">
                 <SheetTitle>Navigation Menu</SheetTitle>
                 <SheetDescription>
-                  Access website sections, products, and contact information.
+                  Trustedwear Tech navigation: Citra AI, Trustedwear Watch, Company, Contact.
                 </SheetDescription>
               </SheetHeader>
               <nav className="grid gap-6 font-medium mt-10 p-4">
-                 <Link href="/" onClick={() => setIsSheetOpen(false)} className="flex items-center gap-2 font-bold text-xl mb-4">
-                    <Image src="/images/trusted-wear-logo.png" alt="TrustedWear" width={100} height={40} />
-                    <span>TrustedWear</span>
-                  </Link>
+                <Link href="/" onClick={() => setIsSheetOpen(false)} className="flex items-center gap-2 font-bold text-xl mb-4">
+                  <Image src="/images/trusted-wear-logo.png" alt="Trustedwear Tech" width={100} height={40} />
+                  <span>Trustedwear Tech</span>
+                </Link>
+                <a
+                  href="https://citra-ai.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsSheetOpen(false)}
+                  className="flex items-center gap-2 text-primary font-semibold text-lg"
+                >
+                  Citra AI
+                  <ExternalLink className="h-4 w-4" />
+                </a>
                 <div>
-                  <p className="text-lg font-semibold text-muted-foreground px-0 py-2 border-b mb-2">Wearables</p>
+                  <p className="text-lg font-semibold text-muted-foreground px-0 py-2 border-b mb-2">
+                    Trustedwear Watch
+                  </p>
                   <div className="grid gap-4 pl-4">
-                      {productLinks.map((link) => (
-                          <Link
-                              key={link.href}
-                              href={link.href}
-                              onClick={() => setIsSheetOpen(false)}
-                              className="transition-colors hover:text-primary text-lg"
-                          >
-                              {link.label}
-                          </Link>
-                      ))}
+                    {watchLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsSheetOpen(false)}
+                        className="transition-colors hover:text-primary text-lg"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
                 {otherLinks.map((link) => (

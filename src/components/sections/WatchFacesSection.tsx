@@ -29,7 +29,7 @@ export function WatchFacesSection() {
   const renderFaces = (faces: {src: string; alt: string; hint: string}[]) => (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
       {faces.map((face, index) => (
-        <div key={index} className="relative group aspect-square cursor-pointer overflow-hidden rounded-full shadow-lg">
+        <div key={index} className="relative group aspect-square cursor-pointer overflow-hidden rounded-full shadow-lg ring-1 ring-border">
           <div className="absolute inset-0 bg-white rounded-full transition-transform duration-300 ease-in-out group-hover:scale-105" />
           <Image
               src={face.src}
